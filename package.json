@@ -1,0 +1,28 @@
+{
+  "name": "nginx-proxy-manager",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=12"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ca": "git add -A && git-cz -av",
+    "commit": "git-cz",
+    "release": "standard-version",
+    "release:first": "standard-version --first-release",
+    "build": "docker build -t valistarguo/nginx-proxy-manager:latest .",
+    "prepush": "npm run build",
+    "push": "docker push valistarguo/nginx-proxy-manager",
+    "postpush": "git push"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "mili": "^3.9.3",
+    "standard-version": "^8.0.2"
+  }
+}
